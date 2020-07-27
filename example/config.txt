@@ -1,0 +1,2 @@
+Prefix plugins/PCoA/example
+Plugin PCoA inputfile parameters.txt outputfile pcoa

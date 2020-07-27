@@ -1,0 +1,4 @@
+otufile	plugins/PCoA/example/asv_abund.norm.transpose.csv
+mapping	plugins/PCoA/example/asv_map.csv
+tree	plugins/PCoA/example/asv_tax.csv
+column	Description
