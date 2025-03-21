@@ -27,12 +27,20 @@ output <- function(outputfile) {
   #height = 10*300); #,)
   print("Generating plot...")
   #result <<- PCoA(physeq)
-  y <- plot_ordination(physeq, ordinate(physeq, "MDS", "unifrac", weighted=TRUE), color=column)
+  #y <- plot_ordination(physeq, ordinate(physeq, "MDS", "unifrac", weighted=TRUE), color=column)
+  print(sample_data(physeq))
+  allGroupsColors <- c("blue", "orange")
+  y <- plot_ordination(physeq, ordinate(physeq, "PCoA"), color=column)  #+
+  y + scale_color_manual(values = allGroupsColors) 
+  #stat_ellipse(type = "norm", linetype = 2)
+  #stat_ellipse(type = "t") +
+  #theme_bw()
   #y <- plot_sparsity(p0)
   #print(str(y))
   print("Generating CSV...")
   #print(str(y$data))
   write.csv(y$data, paste(outputfile,"csv",sep="."))
+  ggsave(paste(outputfile,"pdf",sep="."))
   print(y)#plot_bar(HMP, x="Description", fill=diffcol))
   dev.off()
 }
